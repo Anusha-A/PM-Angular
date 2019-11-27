@@ -6,7 +6,7 @@ export class Employee {
         private firstName: String,
         private lastName: String,
         private userType: String,
-        private email: String,
+        private username: String,
         private availability: boolean
     ){}
 }

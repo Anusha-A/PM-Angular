@@ -13,13 +13,15 @@ import { Component,OnInit,ViewChild } from '@angular/core';
 })
 export class WorkforceComponent implements OnInit {
   recievedvalue:string;
+  errorMessage;
   empdata:Employee[];
-  
+  dataSource;
+  displayedColumns: string[] = ['firstName', 'email'];
   //variable to hold the deatils of employee that is been searched for
   employeeData;
   detailsOfEmployee: Projectmember[];
-  dataSource;
-  displayedColumns: string[] = ['firstName', 'email'];
+  
+  
   
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   constructor(private employeeService:EmployeeService) {
@@ -71,6 +73,13 @@ export class WorkforceComponent implements OnInit {
   {
     this.employeeService.getEmployeeDetails(val).subscribe(info=>{
       this.detailsOfEmployee=info;
+      if(this.detailsOfEmployee.length<=0)
+        {
+          this.errorMessage="Employee is not working on any project!"
+        }
+        else{
+          this.errorMessage=""
+        }
       
     });
   }

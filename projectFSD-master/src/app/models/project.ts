@@ -9,7 +9,7 @@ export class Project {
     public startDate:Date,
     public endDate:Date,
     public stakeholders:string,
-    public gitUrl:string,
+    public githubLink:string,
     public manager:Employee,
     ) { }
 }

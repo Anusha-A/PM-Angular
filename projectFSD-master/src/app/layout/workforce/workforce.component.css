@@ -1,6 +1,13 @@
-table {
-    width: 100%;
-  }
+table{
+  width:100%;
+}
+.table{
+  margin-top:3%;
+}
+ .tablerow{
+   border-bottom: 0.5px solid rgb(179, 176, 176);
+   text-align: left;
+ }
 
   .employee-card{
     margin: 1rem;
@@ -20,12 +27,3 @@ button:focus{
 
 
 
-td{
-    vertical-align: middle;
-    text-align: -webkit-center;
-}
-
-th{
-  vertical-align: middle;
-  text-align: -webkit-center;
-}

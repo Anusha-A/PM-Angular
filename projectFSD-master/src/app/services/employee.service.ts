@@ -1,8 +1,10 @@
+import { Employeeskills } from './../employeeskills';
 import { Projectmember } from '../models/projectmember';
 import { Observable } from 'rxjs';
 import { Employee } from '../models/employee';
 import { HttpClient } from '@angular/common/http';
 import { Injectable,EventEmitter } from '@angular/core';
+
 
 
 @Injectable({
@@ -43,4 +45,11 @@ export class EmployeeService {
     const url = `${this. memberUrl}/${empid}`;
     return this.http.get<Projectmember[]>(url);
   }
+
+  public getEmployeeSkills(empid:number): Observable<Employeeskills[]>{
+    const skills="skills";
+    const url = `${this. memberUrl}/${skills}/${empid}`;
+    return this.http.get<Employeeskills[]>(url);
+  }
+
 }
