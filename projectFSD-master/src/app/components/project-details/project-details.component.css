@@ -1,0 +1,81 @@
+
+.container {
+    background: rgb(192,235,242);
+background: radial-gradient(circle, rgb(219, 222, 223) 6%, rgb(194, 204, 216) 100%);
+}
+
+  .heading {
+    /*background-image: linear-gradient(to right, rgb(8, 8, 12), rgb(45, 46, 45),  black);*/
+    background-color: #172c8b;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    display: block;
+    width:100%;
+  }
+  .button:hover{
+    box-shadow: 1px 2px 5px  #065a0b;
+  }
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  .button {
+    background-image: linear-gradient(to right, rgb(7, 65, 7), rgb(28, 110, 28), rgb(20, 153, 20));
+    border:none;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+   
+    cursor: pointer;
+    
+  }
+  .button1 {border-radius: 2px;
+    float:right;}  
+  .detaildisplay {
+    margin-top: 5%;
+    padding: 3%;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+  }
+
+  
+  .col1{
+    padding:2%;
+    width:20%;
+  
+  }
+
+  .col2{
+    padding:1% 1% 1% 3%;
+    text-align: justify;
+  }
+  .tab{
+    width:100%;
+    padding-bottom: 5%;
+   
+  }
+  tr{ border-bottom: 1px solid black;}

@@ -1,0 +1,26 @@
+
+        <div class="card" *ngFor="let project of projects | slice:0:10">
+
+
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title #proj [attr.data-project-id]="project.projectId" >{{ project.name |titlecase}}</mat-card-title>
+                 
+                </mat-card-header>
+                
+                <mat-card-actions>
+                 
+                  <button [routerLink]="['/details']" (click)="gotonext(proj)" mat-button>View Project</button>
+                </mat-card-actions>
+              </mat-card>
+
+
+           
+
+        </div>
+
+
+
+
+  
