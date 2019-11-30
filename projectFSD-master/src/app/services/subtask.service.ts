@@ -9,13 +9,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SubtaskService {
-  private subtaskUrl:string;
+  private subUrl:string;
   constructor(private http: HttpClient) { 
-    this.subtaskUrl='http://b8java12.iiht.tech:9090/api/getsubtasks';
+    this.subUrl='http://b8java12.iiht.tech:9090/api/getsubtasks';
   }
 
   public getSubtask(pid: number,tid:number): Observable<Subtask[]> {
-    const url = `${this. subtaskUrl}/${pid}/${tid}`;
+    const url = `${this. subUrl}/${pid}/${tid}`;
     console.log(url);
    
    /* return this.http.get<Subtaskmodel[]>(url);*/

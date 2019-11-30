@@ -15,6 +15,7 @@ export class WorkforceComponent implements OnInit {
   recievedvalue:string;
   errorMessage;
   empdata:Employee[];
+  
   dataSource;
   displayedColumns: string[] = ['firstName', 'email'];
   //variable to hold the deatils of employee that is been searched for

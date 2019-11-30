@@ -17,8 +17,8 @@ export class SidenavComponent implements OnInit {
   // fillerNav = {"Projects", "Completed Projects", "Workforce", "Settings"}
 
   fillerNav = [{'icon': 'timeline', 'title': 'Completed Project', 'link': 'completed'},
-                {'icon': 'timeline', 'title': 'Ongoing Project', 'link': 'ongoing'},
-                {'icon': 'equalizer', 'title': 'Tasks', 'link': 'task'}, 
+                {'icon': 'timeline', 'title': 'Ongoing Project', 'link': 'ongoing'},                
+                {'icon': 'timeline', 'title': 'Project', 'link': 'project'},  
                 {'icon': 'people', 'title': 'Workforce', 'link': 'workforce'}]
 
   fillerContent = Array.from({length: 50}, () =>

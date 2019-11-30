@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Project } from './../models/project';
 import { Injectable } from '@angular/core';
+import { Projectmongo } from '../models/projectmongo';
 
 
 
@@ -12,42 +13,75 @@ export class ProjectService {
   private projectUrl: string;
 
   constructor(private http: HttpClient) {
-    this.projectUrl = 'http://b8java12.iiht.tech:9090/api/getProjects';
+    this.projectUrl = 'http://localhost:9090/api/getProjects';
   }
-  public findAll(): Observable<Project[]> {
-    var comp="completed";
-    const url = `${this. projectUrl}/${comp}`;
 
-    var valu= this.http.get<Project[]>(url);
+  public getAllProjectDetails(): Observable<Project[]> {
+
+    var valu= this.http.get<Project[]>( this.projectUrl);
     console.log(valu);
     return valu;
+ }
+  public findCompletedAll(): Observable<Project[]> {
+     var comp="completed";
+     const url = `${this. projectUrl}/${comp}`;
+
+     var valu= this.http.get<Project[]>(url);
+     console.log(valu);
+     return valu;
+
+// var valu=this.http.get<Project[]>('');
+// console.log(valu);
+// return valu;
+
   }
 
   public findOngoing(): Observable<Project[]> {
-    var ong="ongoing";
+   var ong="ongoing";
     const url = `${this. projectUrl}/${ong}`;
-    return this.http.get<Project[]>(url);
+   return this.http.get<Project[]>(url);
+ 
   }
 
  
 
-  public getProjectById(id: number): Promise<Array<Project>> {
+  public getProjectById(id: number): Observable<Project[]> {
     const url = `${this. projectUrl}/${id}`;
     console.log(url);
-    return this.http.get(url)
-    .toPromise()
-    .then(response => response as Project[])
-    .catch(this.handleError);
+     return this.http.get<Project[]>(url);
     }
     private handleError(error: any): Promise<Array<any>> {
       console.error('An error occurred', error);
       return Promise.reject(error.message || error);
       }
 
-      public findMongodata(id: number): Observable<Project[]> {
+      public findMongodata(id: number): Observable<Projectmongo[]> {
         var mong="mongodb";
         const url = `${this. projectUrl}/${mong}/${id}`;
-        return this.http.get<Project[]>(url);
+        return this.http.get<Projectmongo[]>(url);
       }
+  public getOngoingProjectByYear(yr:number):Observable<Project[]> {
+    var pyr ="http://localhost:9090/api/OngoingByYear";
+    const url = `${pyr}/${yr}`;
+    return this.http.get<Project[]>(url);
+  }
+
+  public getCompletedProjectByYear(yr:number):Observable<Project[]> {
+    var pyr ="http://localhost:9090/api/CompletedByYear";
+    const url = `${pyr}/${yr}`;
+    return this.http.get<Project[]>(url);
+  }
+  public getLatestProject():Observable<Project[]>{
+    var latestUrl ="http://localhost:9090/api/getLatest";
+  
+    return this.http.get<Project[]>(latestUrl);
+  }
+
+  public getProjectCount(theYear:number):Observable<number>{
+    var CountUrl ="http://localhost:9090/api/getByYear";
+    const url = `${CountUrl}/${theYear}`;
+    return this.http.get<number>(url);
+  }
+
     
 }

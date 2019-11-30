@@ -1,9 +1,11 @@
+import { Chart } from 'chart.js';
+import { ProjectService } from './../../../services/project.service';
+import { Project } from 'src/app/models/project';
 import { Task } from './../../../models/task';
-
-import { ChartService } from './../../../services/chart.service';
 import { Component, OnInit } from '@angular/core';
-import {Chart} from 'chart.js';
-import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
+
+
+
 
 
 @Component({
@@ -12,53 +14,80 @@ import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./card-hr-chart.component.css']
 })
 export class CardHrChartComponent implements OnInit {
-
+  allPorjectcount: number;
+  allProjects: Project[];
   barchart: any;
-  tasks: Task[];
+  projectCnt: number;
+
   labels = [];
   progress = [];
-  taskCount: number;
-  taskHeader = "Tasks"
-  taskSubtitle = "Task Progress"
-  constructor(private chartService: ChartService) { }
+  c: number;
+  maxvalu: number;
+  ChartHeader = "Project Statistics of 5 years"
+
+  constructor(private projectService: ProjectService) {
+    
+   }
 
   ngOnInit() {
-
-    this.chartService.getTaskData().subscribe(response => {
-      this.tasks = response;
-      console.log(this.tasks);
-      this.getTaskDetails();
+    this.projectService.getLatestProject().subscribe(response => {
+      this.allProjects = response;
+     // console.log('Yahoo' + this.allProjects);
+      this.allPorjectcount = this.allProjects.length;
+     
       this.populateChart();
-    });
 
+    });
+    //console.log(new Date());
     
+
   }
 
-  getTaskDetails(){
-    for(let task of this.tasks){
-      this.labels.push(task.taskDescription);
-      this.progress.push(task.progress);
-      console.log(task);
-      console.log(task.progress);
+ async getTaskDetails() {
+    this.maxvalu = 0;
+    for (let i = 4; i >= 0; i--) {
+
+      const now = new Date();
+      now.setFullYear(now.getFullYear() - i);
+      this.labels.push(now.toISOString().slice(0, 4));
+
+
+      var y = now.toISOString().slice(0, 4);
+      this.c = +y;
+
+
+      this.projectService.getProjectCount(this.c).subscribe(cnt => {
+        this.projectCnt = cnt;
+        if (this.maxvalu < this.projectCnt) {
+          this.maxvalu = this.projectCnt;
+        }
+        console.log('Nid' + this.projectCnt);
+        this.progress.push(this.projectCnt);
+        console.log(' Yo' + this.progress);
+      });
+
     }
   }
-  
 
-  populateChart(){
+
+ async populateChart() {
+   await this.getTaskDetails();
     this.barchart = new Chart('barchart_canvas', {
       type: 'bar',
       data: {
         labels: this.labels,
         datasets: [{
-          label: 'Percentage of Task Completion',
+          label: 'Project Statistics of 5 years',
           data: this.progress,
           backgroundColor: [
-            'rgba(255,99,132,0.2)',
-            'rgba(0,255,0,0.2)',
-            'rgba(0,0,255,0.3)'
-          ] 
+            '#f0134d',  //pink
+            '#5d1451', //purple
+            '#233714', //green
+            '#2a1a5e', //blue
+            '#f45905'  //orange
+          ]
         }]
-      }, 
+      },
       options: {
         legend: {
           display: false
@@ -67,13 +96,13 @@ export class CardHrChartComponent implements OnInit {
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              suggestedMax: 100
+              suggestedMax: this.maxvalu
             }
           }]
         }
       }
     });
   }
-  
+
 
 }

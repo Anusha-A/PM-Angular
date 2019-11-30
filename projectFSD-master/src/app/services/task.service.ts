@@ -11,13 +11,13 @@ import { Injectable } from '@angular/core';
 })
 export class TaskService {
 
-  private taskUrl:string;
+  private taskdataUrl:string;
   constructor(private http: HttpClient) {
-    this.taskUrl='http://b8java12.iiht.tech:9090/api/getTasks';
+    this.taskdataUrl='http://b8java12.iiht.tech:9090/api/getTasks';
    }
 
   public getTaskById(id: number): Observable<Task[]> {
-    const url = `${this. taskUrl}/${id}`;
+    const url = `${this. taskdataUrl}/${id}`;
     console.log(url);
     return this.http.get<Task[]>(url);
     }

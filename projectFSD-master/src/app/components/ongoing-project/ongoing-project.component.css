@@ -1,117 +1,44 @@
 
 
-.projectcontainer{
-    background-color: rgb(222, 223, 224);
-   /* background-color: #1590d8;*/
-     margin-top:5%;
-     padding:5%;
-     
- 
+table{
+  width:100%;
+}
+.table{
+  margin-top:3%;
+}
+ .tablerow{
+   border-bottom: 0.5px solid rgb(179, 176, 176);
+   text-align: left;
  }
- h5{
-    color:rgb(6, 6, 65);
-     font-weight: bold;
-     
- }
- .card{
-     
-     display :inline-flex;
-     margin:1%;
-    /* background-image: linear-gradient(to bottom right, rgb(40, 190, 27), rgb(133, 214, 96),  rgb(67, 141, 24));*/
-   /* background-image: linear-gradient(to bottom right,rgb(189, 210, 221),rgb(154, 170, 207));*/
-  /* background-image: linear-gradient(to bottom right,rgb(24, 129, 185),#1590d8);*/
-     position: relative;
-     text-align: center;
-     border-radius: 3%;
- }
- .card:hover{
-   -moz-box-shadow:10px 10px 7px rgba(105, 110, 117, 0.7);
-     -webkit-box-shadow: 10px 10px 7px rgba(105, 110, 117, 0.7);
-    
-     -moz-transform: scale(1.25);
-     -webkit-transform: scale(1.25);
-     -o-transform: scale(1.25);
-     transform: scale(1.25);
-     position:relative;
-     z-index:5;
-     box-shadow: 1px 2px 3px rgb(169, 195, 250), 0 0 25px rgb(92, 148, 212), 0 0 5px rgb(98, 113, 161);
- }
- .btn {
-     background-image: linear-gradient(to bottom right, rgb(64, 148, 38),  rgb(11, 90, 11));
-     /* Blue background */
-     border: none; /* Remove borders */
-     color: white; /* White text */
-     padding: 10px 10px; /* Some padding */
-     font-size: 16px; /* Set a font size */
-     cursor: pointer; /* Mouse pointer on hover */
-   }
-   
-   /* Darker background on mouse-over */
-   .btn:hover {
-     background-image: linear-gradient(to bottom right, rgb(14, 70, 9),  rgb(53, 117, 37));
-    /* box-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;*/
-   }
- 
-   .footer {
-    
-     position: absolute;
-     bottom: 4%;
-     left: 30%;
-     
+
+  .employee-card{
+    margin: 1rem;
+    border: 1px solid #00000020;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+    background-color: white;
+    padding-bottom: 2rem;
+}
+.header{
+  font-size: 3%;
+}
+.body{
+  padding-top:1%;
+}
+.btn {
+   background-image: linear-gradient(to bottom right, rgb(64, 148, 38),  rgb(11, 90, 11));
+   /* Blue background */
+   border: none; /* Remove borders */
+   color: white; /* White text */
+   padding: 7px 7px; /* Some padding */
+   font-size: 10px; /* Set a font size */
+   cursor: pointer; /* Mouse pointer on hover */
  }
  
- 
- 
- @media only screen and (max-width: 1100px) {
-     .btn {
-       background-image: linear-gradient(to bottom right, rgb(64, 148, 38),  rgb(11, 90, 11));
-         /* Blue background */
-         border: none; /* Remove borders */
-         color: white; /* White text */
-         padding: 5px 5px; /* Some padding */
-         font-size: 12px; /* Set a font size */
-         cursor: pointer; /* Mouse pointer on hover */
-       }
-       h5{
-         color:rgb(6, 6, 65);
-          font-weight: bold;
-          font-size: -40%;
-          
-      }
+ /* Darker background on mouse-over */
+ .btn:hover {
+   background-image: linear-gradient(to bottom right, rgb(14, 70, 9),  rgb(53, 117, 37));
+  /* box-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;*/
  }
- 
- @media only screen and (max-width: 800px){
-     .btn {
-       background-image: linear-gradient(to bottom right, rgb(64, 148, 38),  rgb(11, 90, 11));
-         /* Blue background */
-         border: none; /* Remove borders */
-         color: white; /* White text */
-         padding: 5px 5px; /* Some padding */
-         font-size: 10px; /* Set a font size */
-         cursor: pointer; /* Mouse pointer on hover */
-       }
-       h5{
-         color:rgb(6, 6, 65);
-          font-weight: bold;
-          font-size: -50%;
-      }
- 
- }
- @media only screen and (max-width: 600px){
-     .btn {
-       background-image: linear-gradient(to bottom right, rgb(64, 148, 38),  rgb(11, 90, 11));
-         /* Blue background */
-         border: none; /* Remove borders */
-         color: white; /* White text */
-         padding: 5px 5px; /* Some padding */
-         font-size: 8px; /* Set a font size */
-         cursor: pointer; /* Mouse pointer on hover */
-       }
-       h5{
-         color:rgb(6, 6, 65);
-          font-weight: bold;
-          font-size: -60%;
-      }
- 
- }
+
  

@@ -69,4 +69,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   providers: [ChartService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

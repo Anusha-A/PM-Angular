@@ -26,10 +26,11 @@ export class ProjectDetailsComponent implements OnInit {
 
 }
 getProject( id ) {
-  this.projectService.getProjectById(id).then(
+  this.projectService.getProjectById(id).subscribe(
   proj => {
   this.projects = proj;
-  console.log(proj.length);
+  console.log(this.projects);
+  console.log('Nid' +this.projects[0].budget);
   },
   
   );
@@ -41,4 +42,6 @@ getProject( id ) {
   )
 
   }
+
+  
 }
