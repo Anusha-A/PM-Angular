@@ -78,4 +78,8 @@ export class CardVrChartComponent implements OnInit {
     });
   }
 
+  refresh(){
+    this.Completedcount = 0;
+    this.ngOnInit();
+  }
 }

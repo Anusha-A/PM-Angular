@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-hr-chart.component.css']
 })
 export class CardHrChartComponent implements OnInit {
-  allPorjectcount: number;
+  allProjectcount: number;
   allProjects: Project[];
   barchart: any;
   projectCnt: number;
@@ -26,24 +26,23 @@ export class CardHrChartComponent implements OnInit {
   ChartHeader = "Project Statistics of 5 years"
 
   constructor(private projectService: ProjectService) {
-    
-   }
+
+  }
 
   ngOnInit() {
     this.projectService.getLatestProject().subscribe(response => {
       this.allProjects = response;
-     // console.log('Yahoo' + this.allProjects);
-      this.allPorjectcount = this.allProjects.length;
-     
-      this.populateChart();
-
+      this.allProjectcount = this.allProjects.length;
+      this.getTaskDetails();
+      
     });
-    //console.log(new Date());
-    
+
 
   }
 
- async getTaskDetails() {
+  getTaskDetails() {
+
+    console.log("GettaskDetails called" + new Date());
     this.maxvalu = 0;
     for (let i = 4; i >= 0; i--) {
 
@@ -61,17 +60,18 @@ export class CardHrChartComponent implements OnInit {
         if (this.maxvalu < this.projectCnt) {
           this.maxvalu = this.projectCnt;
         }
-        console.log('Nid' + this.projectCnt);
         this.progress.push(this.projectCnt);
-        console.log(' Yo' + this.progress);
       });
 
     }
+    this.populateChart();
+    console.log("GettaskDetails ended" + new Date())
   }
 
 
- async populateChart() {
-   await this.getTaskDetails();
+  private populateChart() {
+    
+    console.log("populate called" + new Date());
     this.barchart = new Chart('barchart_canvas', {
       type: 'bar',
       data: {
@@ -96,7 +96,7 @@ export class CardHrChartComponent implements OnInit {
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              suggestedMax: this.maxvalu
+              suggestedMax: 100
             }
           }]
         }
@@ -104,5 +104,9 @@ export class CardHrChartComponent implements OnInit {
     });
   }
 
-
+  refresh() {
+    this.labels = [];
+    this.progress = [];
+    this.ngOnInit();
+  }
 }
