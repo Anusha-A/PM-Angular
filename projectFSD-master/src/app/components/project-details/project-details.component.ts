@@ -31,15 +31,16 @@ getProject( id ) {
   this.projects = proj;
   console.log(this.projects);
   console.log('Nid' +this.projects[0].budget);
-  },
-  
-  );
   this.projectService.findMongodata(id).subscribe(
     resultvalue => {
       this.mongodata= resultvalue;
       console.log(this.mongodata);
     }
   )
+  }
+  
+  );
+  
 
   }
 

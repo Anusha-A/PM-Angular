@@ -24,7 +24,7 @@ import {ProgressBarModule} from "angular-progress-bar";
 import { OngoingProjectComponent } from './components/ongoing-project/ongoing-project.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { UpdateTaskComponent } from './components/update-task/update-task.component';
+
 
 
 @NgModule({
@@ -42,7 +42,7 @@ import { UpdateTaskComponent } from './components/update-task/update-task.compon
     CompletedProjectComponent,
     OngoingProjectComponent,
     ProjectDetailsComponent,
-    UpdateTaskComponent
+   
   ],
   imports: [
     BrowserModule,

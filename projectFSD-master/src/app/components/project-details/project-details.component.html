@@ -1,8 +1,8 @@
 <div class="container">
   <mat-card class="detail-card " *ngIf="projects">
-    <mat-card-header *ngIf="mongodata">
+    <mat-card-header >
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content >
       <!--<div class="container detaildisplay" *ngIf="projects" >-->
       <div class="heading">
         <h4>{{projects[0].name |titlecase}}</h4>
@@ -11,13 +11,13 @@
       </div><br>
       <button class="button button1" [routerLink]="['/task']">
         <span>View Progress</span></button>
-      <table class="tab">
+      <table class="tab" *ngIf="mongodata">
         <tr>
           <td class="col1">
             <h5>Description: </h5>
           </td>
           <td class="col2">
-            <p>{{mongodata.projectDesc}}</p>
+            <p>{{mongodata[0].projectDesc}}</p>
           </td>
         </tr>
         <tr>
@@ -42,7 +42,7 @@
             <h5>Stakeholders:</h5>
           </td>
           <td class="col2">
-            <p>{{mongodata.stakeholders}}</p>
+            <p>{{mongodata[0].stakeholders}}</p>
           </td>
         </tr>
 

@@ -62,7 +62,7 @@ export class CardVrChartComponent implements OnInit {
         datasets: [{
           label: "Points",
           data: [this.Completedcount, this.Ongoingcount], 
-          backgroundColor: ['#1fd10f', '#ff4500']
+          backgroundColor: ['#1fd10f', 'red']
         }]
       },
       options: {

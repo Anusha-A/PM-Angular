@@ -37,6 +37,7 @@ export class CompletedProjectComponent implements OnInit {
   {
     this.projectdata = proj.getAttribute('data-project-id');
     sessionStorage.setItem('pid', this.projectdata);
+    console.log(proj);
   }
 
   searchProj(yearData)

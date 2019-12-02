@@ -17,7 +17,7 @@ export class CardHrChartComponent implements OnInit {
   allProjectcount: number;
   allProjects: Project[];
   barchart: any;
-  projectCnt: number;
+  projectCnt: number[];
 
   labels = [];
   progress = [];
@@ -33,9 +33,25 @@ export class CardHrChartComponent implements OnInit {
     this.projectService.getLatestProject().subscribe(response => {
       this.allProjects = response;
       this.allProjectcount = this.allProjects.length;
-      this.getTaskDetails();
-      
+
+
     });
+    this.projectService.getProjectCount().subscribe(cnt => {
+      this.projectCnt = cnt;
+      console.log("prpojectCount" + this.projectCnt);
+
+      this.progress = this.projectCnt;
+      this.maxvalu = this.progress.reduce(function (a, b) {
+        return Math.max(a, b);
+
+      });
+      console.log(this.maxvalu);
+      this.getTaskDetails();
+
+    });
+
+
+
 
 
   }
@@ -43,6 +59,8 @@ export class CardHrChartComponent implements OnInit {
   getTaskDetails() {
 
     console.log("GettaskDetails called" + new Date());
+
+
     this.maxvalu = 0;
     for (let i = 4; i >= 0; i--) {
 
@@ -50,28 +68,17 @@ export class CardHrChartComponent implements OnInit {
       now.setFullYear(now.getFullYear() - i);
       this.labels.push(now.toISOString().slice(0, 4));
 
-
-      var y = now.toISOString().slice(0, 4);
-      this.c = +y;
-
-
-      this.projectService.getProjectCount(this.c).subscribe(cnt => {
-        this.projectCnt = cnt;
-        if (this.maxvalu < this.projectCnt) {
-          this.maxvalu = this.projectCnt;
-        }
-        this.progress.push(this.projectCnt);
-      });
-
     }
+
+    console.log("Progress" + this.progress);
     this.populateChart();
-    console.log("GettaskDetails ended" + new Date())
+    //console.log("GettaskDetails ended" + new Date())
   }
 
 
   private populateChart() {
-    
-    console.log("populate called" + new Date());
+
+    //console.log("populate called" + new Date());
     this.barchart = new Chart('barchart_canvas', {
       type: 'bar',
       data: {
@@ -80,11 +87,12 @@ export class CardHrChartComponent implements OnInit {
           label: 'Project Statistics of 5 years',
           data: this.progress,
           backgroundColor: [
-            '#f0134d',  //pink
-            '#5d1451', //purple
-            '#233714', //green
-            '#2a1a5e', //blue
-            '#f45905'  //orange
+            '#fcfa81',  //olive green
+            '#7ee080',  //green
+            '#7ee0de', //blue
+            '#e07ed8', //pink           
+            '#c181fc', //purple
+            
           ]
         }]
       },
@@ -96,7 +104,7 @@ export class CardHrChartComponent implements OnInit {
           yAxes: [{
             ticks: {
               beginAtZero: true,
-              suggestedMax: 100
+              suggestedMax: this.maxvalu
             }
           }]
         }

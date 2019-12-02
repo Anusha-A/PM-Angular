@@ -77,10 +77,10 @@ export class ProjectService {
     return this.http.get<Project[]>(latestUrl);
   }
 
-  public getProjectCount(theYear:number):Observable<number>{
+  public getProjectCount():Observable<number[]>{
     var CountUrl ="http://localhost:9090/api/getByYear";
-    const url = `${CountUrl}/${theYear}`;
-    return this.http.get<number>(url);
+   
+    return this.http.get<number[]>(CountUrl);
   }
 
     
