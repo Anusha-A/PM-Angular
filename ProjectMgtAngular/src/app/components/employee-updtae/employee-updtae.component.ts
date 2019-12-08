@@ -51,7 +51,7 @@ export class EmployeeUpdtaeComponent implements OnInit {
     this.subtaskService.findAll().subscribe(data => {
       console.log(data);
       this.subtasks = data;
-      this.id1 = 0;
+      this.id1 = Number(sessionStorage.getItem("pid"));
 
 
     });

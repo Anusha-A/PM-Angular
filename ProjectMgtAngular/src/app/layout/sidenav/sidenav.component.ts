@@ -16,7 +16,7 @@ export class SidenavComponent implements OnInit {
   // navIcons = ["equalizer", "pie_chart", "people", "settings"]
   // fillerNav = {"Projects", "Completed Projects", "Workforce", "Settings"}
 
-  fillerNav = [{'icon': 'donut_small', 'title': 'Project', 'link': 'project'},
+  fillerNav = [{'icon': 'donut_small', 'title': 'Dashboard', 'link': 'project'},
                {'icon': 'check_circle', 'title': 'Create Project', 'link': 'createproject'},
                 {'icon': 'check_circle', 'title': 'Completed Project', 'link': 'completed'},
                 {'icon': 'timeline', 'title': 'Ongoing Project', 'link': 'ongoing'},                
