@@ -1,3 +1,4 @@
+import { ErrorPageComponent } from './error-page/error-page.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { OngoingProjectComponent } from './components/ongoing-project/ongoing-project.component';
 import { CompletedProjectComponent } from './components/completed-project/completed-project.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'subtask', component: SubtaskComponent},
   {path: 'completed', component:CompletedProjectComponent},
   {path:'ongoing',component:OngoingProjectComponent},
-  {path: 'details', component:ProjectDetailsComponent}
+  {path: 'details', component:ProjectDetailsComponent},
+  {path:'error', component:ErrorPageComponent}
 ];
 
 @NgModule({

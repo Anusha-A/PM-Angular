@@ -84,7 +84,7 @@ export class CardHrChartComponent implements OnInit {
       data: {
         labels: this.labels,
         datasets: [{
-          label: 'Project Statistics of 5 years',
+          label: 'Project count',
           data: this.progress,
           backgroundColor: [
             '#fcfa81',  //olive green

@@ -39,9 +39,11 @@ export class ProjectService {
   public findOngoing(): Observable<Project[]> {
    var ong="ongoing";
     const url = `${this. projectUrl}/${ong}`;
-   return this.http.get<Project[]>(url);
+   return this.http.get<Project[]>(url)
+  
  
   }
+  
 
  
 
@@ -50,6 +52,9 @@ export class ProjectService {
     console.log(url);
      return this.http.get<Project[]>(url);
     }
+
+
+
     private handleError(error: any): Promise<Array<any>> {
       console.error('An error occurred', error);
       return Promise.reject(error.message || error);

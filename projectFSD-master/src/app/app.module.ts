@@ -24,6 +24,7 @@ import {ProgressBarModule} from "angular-progress-bar";
 import { OngoingProjectComponent } from './components/ongoing-project/ongoing-project.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -42,6 +43,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CompletedProjectComponent,
     OngoingProjectComponent,
     ProjectDetailsComponent,
+    ErrorPageComponent,
    
   ],
   imports: [
