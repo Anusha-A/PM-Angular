@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit {
     this.apiService.login(loginPayload).subscribe(data => {
 
       if (data.status === 200) {
-        window.localStorage.setItem('token', data.result.token);
+        sessionStorage.setItem('token', data.result.token);
         sessionStorage.setItem('usertype', data.result.username);
         sessionStorage.setItem('eid', data.result.userId);
    sessionStorage.setItem('username', loginPayload.username);
@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
       }
       else if (data.status === 201) {
          sessionStorage.setItem('usertype', data.result.username);
-        window.localStorage.setItem('token', data.result.token);
+         sessionStorage.setItem('token', data.result.token);
         sessionStorage.setItem('username', loginPayload.username);
         sessionStorage.setItem('eid',data.result.employeeId);
         console.log("employee");
@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit {
       }
       else if (data.status === 202) {
          sessionStorage.setItem('usertype', data.result.username);
-        window.localStorage.setItem('token', data.result.token);
+         sessionStorage.setItem('token', data.result.token);
         sessionStorage.setItem('token', data.result.token);
         sessionStorage.setItem('username', loginPayload.username);
         sessionStorage.setItem('eid',data.result.employeeId);

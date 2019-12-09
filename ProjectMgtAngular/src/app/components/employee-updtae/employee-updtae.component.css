@@ -38,7 +38,7 @@ td{
     flex-direction: column;
     /* min-height: 100vh; */
     min-width: 100vw;
-    position: fixed;
+    /* position: fixed; */
   }
   
   .navigation-is-mobile{
@@ -117,3 +117,32 @@ td
           Drawer Styles 
 =========================================
 */
+
+
+
+@media screen and (max-width: 700px) {
+  .employee_subtask_header{
+    display: none;
+  }
+
+  tr{
+    border-radius: 12px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+  }
+
+  td:before{
+    content: attr(data-label);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-right: 10px;
+  }
+
+  td{
+    display: block;
+    text-align: left;
+
+    padding: 10px;
+  }
+}

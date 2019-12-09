@@ -16,14 +16,14 @@ import { CreateProjectComponent } from './components/create-project/create-proje
 import { TaskMComponent } from './components/taskM/taskM.component';
 import { SubtaskMComponent } from './components/subtaskM/subtaskM.component';
 import { WorkforceMComponent } from './components/workforce-m/workforce-m.component';
-import { CardLayoutMComponent } from './components/card-layout-m/card-layout-m.component';
-import {EmployeeUpdtaeComponent} from './components/employee-updtae/employee-updtae.component';
-import {ErrorpageComponent} from './components/errorpage/errorpage.component';
-import {RolebasedauthService} from './services/rolebasedauth.service';
+import { CardLayoutMComponent } from './layout/card-layout-m/card-layout-m.component';
+import { EmployeeUpdtaeComponent } from './components/employee-updtae/employee-updtae.component';
+import { ErrorpageComponent } from './components/errorpage/errorpage.component';
+import { RolebasedauthService } from './services/rolebasedauth.service';
 import { CardEmpLayoutComponent } from './layout/card-emp-layout/card-emp-layout.component';
 
 
-const routes: Routes = [ 
+const routes: Routes = [
     {
         path: '', component: LoginComponent
     },
@@ -31,30 +31,32 @@ const routes: Routes = [
 
     { path: 'errorpage', component: ErrorpageComponent },
     {
-        path: 'employee', component: EmployeeUpdtaeComponent, data: {
+        path: 'employee', component: EmployeeUpdtaeComponent, canActivate: [RolebasedauthService],
+        data: {
             expectedRole: 'MEMBER'
         },
-        
-    },{
 
-  
-    path: 'cardemp', component: CardEmpLayoutComponent, data: {
+    },
+    {
+        path: 'cardemp', component: CardEmpLayoutComponent, canActivate: [RolebasedauthService],
+        data: {
             expectedRole: 'MEMBER'
         },
-        },
+    },
     {
         path: 'login', component: LoginComponent,
     },
-   
-    { path: 'agreedoc', component: AgreedocComponent
-  
-     },
+
+    {
+        path: 'agreedoc', component: AgreedocComponent
+
+    },
 
     {
         path: 'manager', component: ManagerComponent, canActivate: [RolebasedauthService],
-  data: {
-                    expectedRole: 'MANAGER'
-                },
+        data: {
+            expectedRole: 'MANAGER'
+        },
         children: [
             {
                 path: '',
@@ -89,9 +91,9 @@ const routes: Routes = [
                 }
             },
             {
-                path:'workforceM',
+                path: 'workforceM',
                 component: WorkforceMComponent,
-                 canActivate: [RolebasedauthService],
+                canActivate: [RolebasedauthService],
                 data: {
                     expectedRole: 'MANAGER'
                 }
@@ -102,11 +104,11 @@ const routes: Routes = [
     // { path: 'task', component: TaskComponent },
     // { path: 'subtask', component: SubtaskComponent },
     //   {path: 'side-nav/completed', component: CompletedProjectComponent},
-{
+    {
         path: 'side-nav', component: SidenavComponent, canActivate: [RolebasedauthService],
-         data: {
-                expectedRole: 'ADMIN'
-            },
+        data: {
+            expectedRole: 'ADMIN'
+        },
         children: [{
             path: 'completed',
             component: CompletedProjectComponent,

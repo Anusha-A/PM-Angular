@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './layout/login/login.component';
 import { FormsModule }   from '@angular/forms';
 
-
-
 import { ApiService } from "./services/apiservice.service";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { TokenInterceptor } from "./services/token-interceptor.service";
@@ -57,7 +55,7 @@ import {EmployeeService} from './services/employee.service';
 import {ProjectService} from './services/project.service';
 import {ProjectMemberService} from './services/projectmember.service';
 import {TaskDataStorageService} from './services/taskdatastorage.service';
-import {CardLayoutMComponent } from './components/card-layout-m/card-layout-m.component';
+import {CardLayoutMComponent } from './layout/card-layout-m/card-layout-m.component';
 import {SubtaskServiceService} from './services/subtask-service.service';
 import {EmployeeUpdtaeComponent} from './components/employee-updtae/employee-updtae.component';
 import { AddmembersComponent } from './components/addmembers/addmembers.component';
@@ -65,7 +63,7 @@ import { ViewmembersComponent } from './components/viewmembers/viewmembers.compo
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 
 
-import {ErrorService} from './services/error.service';
+import {ErrorDialogService} from './services/error.service';
 import { CardEmpLayoutComponent } from './layout/card-emp-layout/card-emp-layout.component';
 import { CardVrEComponent } from './components/cards/card-vr-e/card-vr-e.component';
 
@@ -142,7 +140,7 @@ import { CardVrEComponent } from './components/cards/card-vr-e/card-vr-e.compone
     EmployeeService,
     ProjectService,
     ProjectMemberService,
-
+    ErrorDialogService,
     SkillsService,
     SubtaskServiceService,
     TaskDataStorageService,
@@ -154,6 +152,6 @@ import { CardVrEComponent } from './components/cards/card-vr-e/card-vr-e.compone
     },
      ],
   bootstrap: [AppComponent],
-  entryComponents: [CompletedialogComponent,CreateTaskComponent,CreateSubTaskComponent]
+  entryComponents: [CompletedialogComponent,CreateTaskComponent,CreateSubTaskComponent,ErrorpageComponent]
 })
 export class AppModule { }

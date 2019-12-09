@@ -1,8 +1,8 @@
-<div class="navigation-container" [class.navigation-is-mobile]="mobileQuery.matches">
+<!-- <div class="navigation-container" [class.navigation-is-mobile]="mobileQuery.matches"> -->
     <mat-toolbar class="header">
         <mat-toolbar-row class="header-row">
 
-            <span>Third Line</span>
+            <span>Project Management</span>
             <span class="toolbar-spacer"></span>
             <button mat-icon-button [matMenuTriggerFor]="profileMenu">
                 <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="Toolbar profile icon">
@@ -30,11 +30,11 @@
         </mat-card-header>
 
         <mat-card-content>
-            <div class="container pt-5">
+            <!-- <div class="container pt-5"> -->
 
                 <form #UpdateForm="ngForm">
                     <table class="table text-center table-borderless table-responsive">
-                        <thead>
+                        <thead class="employee_subtask_header">
                             <tr class="alignment text-uppercase">
                                 <th scope="col">ID</th>
                                 <th scope="col">Name</th>
@@ -49,14 +49,14 @@
                         <tbody>
                             <!-- <tr *ngFor="let taskdetail of tasks">-->
                             <tr #name *ngFor="let subtask of subtasks;let i=index">
-                                <td>{{subtask.subTaskId}}</td>
-                                <td>{{subtask.subTaskTitle}}</td>
-                                <td>{{subtask.subTaskDescription}}</td>
-                                <td>{{subtask.startDate | date: "MM/dd/yy"}}</td>
-                                <td>{{subtask.dueDate | date: "MM/dd/yy" }}</td>
+                                <td data-label="ID">{{subtask.subTaskId}}</td>
+                                <td data-label="Name">{{subtask.subTaskTitle}}</td>
+                                <td data-label="Description">{{subtask.subTaskDescription}}</td>
+                                <td data-label="Start Date">{{subtask.startDate | date: "MM/dd/yy"}}</td>
+                                <td data-label="Due Date">{{subtask.dueDate | date: "MM/dd/yy" }}</td>
 
 
-                                <td>
+                                <td data-label="Progress">
                                     <div  #progress_bar><progress-bar [progress]="subtask.progressPercentage" id="progress-bar"
                                         [color-degraded]="{'0': '#ff0000',  '15': '#ed5107', '50': '#40bfc1', '70' : '#a8ff3e'}">
                                     </progress-bar></div>
@@ -78,8 +78,8 @@
                         </tbody>
                     </table>
                 </form>
-            </div>
+            <!-- </div> -->
         </mat-card-content>
     </mat-card>
 
-</div>
+<!-- </div> -->

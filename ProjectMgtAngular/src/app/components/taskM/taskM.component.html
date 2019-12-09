@@ -11,7 +11,7 @@
     </mat-card-header>
     <mat-card-content>
       <table class="table text-center table-borderless">
-        <thead>
+        <thead class="manager_task_header">
           <tr class="alignment text-uppercase">
             <th>name</th>
             <th>description</th>
@@ -23,12 +23,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let task of tasks; index as taskNo">
-            <td>{{task.taskTitle}}</td>
-            <td>{{task.description}}</td>
-            <td>{{task.startDate | date: "MM/dd/yy"}}</td>
-            <td>{{task.dueDate | date: "MM/dd/yy"}}</td>
+            <td data-label="Name">{{task.taskTitle}}</td>
+            <td data-label="Description">{{task.description}}</td>
+            <td data-label="Start Date">{{task.startDate | date: "MM/dd/yy"}}</td>
+            <td data-label="Due Date">{{task.dueDate | date: "MM/dd/yy"}}</td>
             <td #val [attr.data-task-id]="task.taskId"><button mat-flat-button color="primary" (click)="gotoSubtasks(taskNo)">View Subtasks</button></td>
-            <td>
+            <td data-label="Progress">
                 <div class="task-progress-container">
                   <circle-progress
                   [percent]="task.progress"
